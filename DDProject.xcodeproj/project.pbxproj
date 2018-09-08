@@ -29,6 +29,9 @@
 		799788972140BBC200BEEE62 /* DDProjectDylib.h in Headers */ = {isa = PBXBuildFile; fileRef = 799788962140BBC200BEEE62 /* DDProjectDylib.h */; };
 		799788992140BBC200BEEE62 /* DDProjectDylib.m in Sources */ = {isa = PBXBuildFile; fileRef = 799788982140BBC200BEEE62 /* DDProjectDylib.m */; };
 		799788A32140BBD600BEEE62 /* 嗒嗒学语.ipa in Resources */ = {isa = PBXBuildFile; fileRef = 799788A22140BBD600BEEE62 /* 嗒嗒学语.ipa */; };
+		84A6BB2A2142B59200B41D38 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A6BB292142B59200B41D38 /* AVOSCloud.framework */; };
+		84A6BB2D2142B82B00B41D38 /* ControlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A6BB2B2142B82B00B41D38 /* ControlManager.m */; };
+		84A6BB2E2142B82B00B41D38 /* ControlManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 84A6BB2C2142B82B00B41D38 /* ControlManager.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		799788962140BBC200BEEE62 /* DDProjectDylib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDProjectDylib.h; sourceTree = "<group>"; };
 		799788982140BBC200BEEE62 /* DDProjectDylib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDProjectDylib.m; sourceTree = "<group>"; };
 		799788A22140BBD600BEEE62 /* 嗒嗒学语.ipa */ = {isa = PBXFileReference; lastKnownFileType = file; path = "嗒嗒学语.ipa"; sourceTree = "<group>"; };
+		84A6BB292142B59200B41D38 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVOSCloud.framework; path = DDProject/AVOSCloud.framework; sourceTree = "<group>"; };
+		84A6BB2B2142B82B00B41D38 /* ControlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlManager.m; sourceTree = "<group>"; };
+		84A6BB2C2142B82B00B41D38 /* ControlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A6BB2A2142B59200B41D38 /* AVOSCloud.framework in Frameworks */,
 				7997886C2140BBC200BEEE62 /* JavaScriptCore.framework in Frameworks */,
 				799788702140BBC200BEEE62 /* UIKit.framework in Frameworks */,
 				7997886E2140BBC200BEEE62 /* Foundation.framework in Frameworks */,
@@ -168,6 +175,7 @@
 		7997886A2140BBC200BEEE62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84A6BB292142B59200B41D38 /* AVOSCloud.framework */,
 				7997886B2140BBC200BEEE62 /* JavaScriptCore.framework */,
 				7997886D2140BBC200BEEE62 /* Foundation.framework */,
 				7997886F2140BBC200BEEE62 /* UIKit.framework */,
@@ -178,6 +186,8 @@
 		799788712140BBC200BEEE62 /* DDProjectDylib */ = {
 			isa = PBXGroup;
 			children = (
+				84A6BB2C2142B82B00B41D38 /* ControlManager.h */,
+				84A6BB2B2142B82B00B41D38 /* ControlManager.m */,
 				799788962140BBC200BEEE62 /* DDProjectDylib.h */,
 				799788982140BBC200BEEE62 /* DDProjectDylib.m */,
 				799788722140BBC200BEEE62 /* Logos */,
@@ -257,6 +267,7 @@
 			files = (
 				7997887C2140BBC200BEEE62 /* MDCycriptManager.h in Headers */,
 				799788802140BBC200BEEE62 /* MDMethodTrace.h in Headers */,
+				84A6BB2E2142B82B00B41D38 /* ControlManager.h in Headers */,
 				799788892140BBC200BEEE62 /* LLDBTools.h in Headers */,
 				799788782140BBC200BEEE62 /* MDConfigManager.h in Headers */,
 				799788972140BBC200BEEE62 /* DDProjectDylib.h in Headers */,
@@ -413,6 +424,7 @@
 				7997887A2140BBC200BEEE62 /* MDConfigManager.m in Sources */,
 				7997888B2140BBC200BEEE62 /* LLDBTools.mm in Sources */,
 				799788752140BBC200BEEE62 /* DDProjectDylib.mm in Sources */,
+				84A6BB2D2142B82B00B41D38 /* ControlManager.m in Sources */,
 				799788992140BBC200BEEE62 /* DDProjectDylib.m in Sources */,
 				799788822140BBC200BEEE62 /* MDMethodTrace.m in Sources */,
 				799788932140BBC200BEEE62 /* fishhook.c in Sources */,
@@ -545,7 +557,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E5EJ3R9VNE;
+				DEVELOPMENT_TEAM = GM6C5S4FLT;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				ENABLE_BITCODE = NO;
@@ -556,6 +568,7 @@
 					"$(MonkeyDevPath)/Frameworks/**",
 					"$(MonkeyDevPath)/Librarys/**",
 					"$(MonkeyDevTheosPath)/vendor/lib",
+					"$(PROJECT_DIR)/DDProject",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -607,7 +620,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = E5EJ3R9VNE;
+				DEVELOPMENT_TEAM = GM6C5S4FLT;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				ENABLE_BITCODE = NO;
@@ -618,6 +631,7 @@
 					"$(MonkeyDevPath)/Frameworks/**",
 					"$(MonkeyDevPath)/Librarys/**",
 					"$(MonkeyDevTheosPath)/vendor/lib",
+					"$(PROJECT_DIR)/DDProject",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -662,8 +676,9 @@
 		799788A02140BBC200BEEE62 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AC3QX9VJ78;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = GM6C5S4FLT;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DDProject/Info.plist;
 				MONKEYDEV_ADD_SUBSTRATE = YES;
@@ -674,8 +689,10 @@
 				MONKEYDEV_TARGET_APP = Optional;
 				PODS_CONFIGURATION_BUILD_DIR = "$BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hangyu.dadaxueyu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hangyu.dedaxueyu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e820a29e-314d-4f39-83a5-3416582af418";
+				PROVISIONING_PROFILE_SPECIFIER = ddxy_dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -683,8 +700,9 @@
 		799788A12140BBC200BEEE62 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AC3QX9VJ78;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = GM6C5S4FLT;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DDProject/Info.plist;
 				MONKEYDEV_ADD_SUBSTRATE = YES;
@@ -695,8 +713,10 @@
 				MONKEYDEV_TARGET_APP = Optional;
 				PODS_CONFIGURATION_BUILD_DIR = "$BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hangyu.dadaxueyu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hangyu.dedaxueyu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7328267a-6157-4fb1-a747-08aa9f0efe43";
+				PROVISIONING_PROFILE_SPECIFIER = ddxy_hoc;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
