@@ -22,6 +22,19 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>3.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>open</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx4481cc9e70d8ec4b</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>57</string>
 </dict>

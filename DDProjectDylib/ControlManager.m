@@ -8,6 +8,7 @@
 
 #import "ControlManager.h"
 #import <AVOSCloud/AVOSCloud.h>
+
 static ControlManager *shareInstance;
 
 static CGFloat Second_Day = 24 * 60 * 60;

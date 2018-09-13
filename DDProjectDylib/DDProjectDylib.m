@@ -15,6 +15,7 @@
 #import <MDCycriptManager.h>
 #import "ControlManager.h"
 #import <AVOSCloud/AVOSCloud.h>
+//#import "URLHandler.h"
 
 CHConstructor{
     NSLog(INSERT_SUCCESS_WELCOME);
@@ -92,10 +93,47 @@ CHConstructor{
 }
 */
 
+CHDeclareClass(URLHandler)
+
+CHOptimizedClassMethod0(self, id, URLHandler,getInstance){
+    NSLog(@"getInstance=========");
+    id obj = CHSuper0(URLHandler, getInstance);
+    return obj;
+}
+
+CHOptimizedMethod1(self, void, URLHandler, handleURL,id ,arg1){
+    NSLog(@"URLHandler=========");
+    CHSuper1(URLHandler, handleURL,arg1);
+    //handleURL = wx4481cc9e70d8ec4b://submit_1572
+//    wx4481cc9e70d8ec4b://submit_1572
+}
+CHConstructor{
+    CHLoadLateClass(URLHandler);
+    CHClassHook1(URLHandler, handleURL);
+    CHClassHook0(URLHandler, getInstance);
+
+}
+
+
 CHDeclareClass(AppLocalserver)
+
+CHDeclareClassMethod1(void, AppLocalserver, newMethod, NSString*, output){
+    NSLog(@"This is a new method : %@", output);
+}
+
 CHOptimizedClassMethod1(self, id, AppLocalserver, ActionHander,NSDictionary *,arg1){
     NSLog(@">>>>>>>>>>>>>>>>>>>1");
     NSLog(@"收到的数据=======%@",arg1);
+    [self newMethod:@"dsafdsa"];
+    NSString *submit = [NSString stringWithFormat:@"wx4481cc9e70d8ec4b://submit_123"];
+    NSURL *url = [NSURL URLWithString:submit];
+    
+    NSLog(@"bbbbbb%@",URLHandler$);
+//    $URLHandler_handleURL$_method(URLHandler$.metaClass_, @selector(handleURL:), url);
+    
+    
+//    $URLHandler_handleURL$_method(URLHandler$, @selector(handleURL:), url);
+    
     NSNumber *value = [[NSUserDefaults standardUserDefaults] valueForKey:@"vipIsValid_mmb"];
     if (value.intValue == 1){
         NSString *pkg = arg1[@"pkg"];
@@ -107,12 +145,30 @@ CHOptimizedClassMethod1(self, id, AppLocalserver, ActionHander,NSDictionary *,ar
             [[NSUserDefaults standardUserDefaults] setValue:a forKey:@"a"];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }
+
+        if ([a isEqualToString:@"check"]){
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 60 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                NSDictionary *playDic = @{@"pkg":pkg,@"tid":tid,@"a":@"play"};
+                CHSuper1(AppLocalserver, ActionHander, playDic);
+            });
+        }
+        else if ([a isEqualToString:@"play"]){
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                NSString *submit = [NSString stringWithFormat:@"wx4481cc9e70d8ec4b://submit_%@",tid];
+                NSURL *url = [NSURL URLWithString:submit];
+
+//                CHSuper1(URLHandler, handleURL , url);
+            
+//            });
+        }
+        
     }
-   NSString *obj =  CHSuper1(AppLocalserver, ActionHander,arg1);
+    NSString *obj =  CHSuper1(AppLocalserver, ActionHander,arg1);
     NSLog(@"返回的数据=======%@",obj);
     NSLog(@"<<<<<<<<<<<<<<<<<<<<1");
     return  obj;
 }
+
 CHConstructor{
     CHLoadLateClass(AppLocalserver);
     CHClassHook1(AppLocalserver, ActionHander);
@@ -271,7 +327,6 @@ CHConstructor{
     CHLoadLateClass(AppSettingViewController);
     CHClassHook0(AppSettingViewController, viewDidLoad);
 }
-
 CHDeclareClass(TestMusicPlayer)
 CHOptimizedMethod0(self, void, TestMusicPlayer, play){
     CHSuper0(TestMusicPlayer, play);
@@ -281,14 +336,6 @@ CHConstructor{
     CHClassHook0(TestMusicPlayer, play);
 }
 
-CHDeclareClass(URLHandler)
-CHOptimizedMethod1(self, void, URLHandler, handleURL,id ,arg1){
-    CHSuper1(URLHandler, handleURL,arg1);
-}
-CHConstructor{
-    CHLoadLateClass(URLHandler);
-    CHClassHook1(URLHandler, handleURL);
-}
 
 
 CHDeclareClass(CommonFunc)
@@ -334,7 +381,6 @@ CHConstructor{
     CHLoadLateClass(NSString);
     CHClassHook1(NSString, dataUsingEncoding);
 }
-
 
 //
 CHDeclareClass(AppDelegate)
