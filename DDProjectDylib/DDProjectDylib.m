@@ -139,7 +139,7 @@ CHOptimizedClassMethod1(self, id, AppLocalserver, ActionHander,NSDictionary *,ar
             [[NSUserDefaults standardUserDefaults] setValue:a forKey:@"a"];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }
-        if ([a isEqualToString:@"check"]){
+        if ([a isEqualToString:@"aclimit"]){
             //点击试玩
             NSInteger randomSecond = arc4random()%10;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (60 + randomSecond) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
