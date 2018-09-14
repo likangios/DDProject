@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		79852592214A5E7D00701D38 /* URLHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 79852590214A5E7D00701D38 /* URLHandler.m */; };
 		79852593214A5E7D00701D38 /* URLHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 79852591214A5E7D00701D38 /* URLHandler.h */; };
 		7997885D2140BBC200BEEE62 /* MDConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7997885C2140BBC200BEEE62 /* MDConfig.plist */; };
 		799788672140BBC200BEEE62 /* libDDProjectDylib.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 799788662140BBC200BEEE62 /* libDDProjectDylib.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -60,8 +59,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		79852590214A5E7D00701D38 /* URLHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLHandler.m; sourceTree = "<group>"; };
 		79852591214A5E7D00701D38 /* URLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLHandler.h; sourceTree = "<group>"; };
+		79852594214B8DB800701D38 /* DDProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DDProject.entitlements; sourceTree = "<group>"; };
 		799788542140BBC200BEEE62 /* DDProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		799788572140BBC200BEEE62 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		799788582140BBC200BEEE62 /* Target.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Target.plist; sourceTree = "<group>"; };
@@ -141,6 +140,7 @@
 		799788562140BBC200BEEE62 /* DDProject */ = {
 			isa = PBXGroup;
 			children = (
+				79852594214B8DB800701D38 /* DDProject.entitlements */,
 				799788572140BBC200BEEE62 /* icon.png */,
 				799788582140BBC200BEEE62 /* Target.plist */,
 				799788602140BBC200BEEE62 /* Info.plist */,
@@ -195,7 +195,6 @@
 				799788962140BBC200BEEE62 /* DDProjectDylib.h */,
 				799788982140BBC200BEEE62 /* DDProjectDylib.m */,
 				79852591214A5E7D00701D38 /* URLHandler.h */,
-				79852590214A5E7D00701D38 /* URLHandler.m */,
 				799788722140BBC200BEEE62 /* Logos */,
 				799788762140BBC200BEEE62 /* Config */,
 				799788872140BBC200BEEE62 /* Tools */,
@@ -336,6 +335,11 @@
 				TargetAttributes = {
 					799788532140BBC200BEEE62 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					799788652140BBC200BEEE62 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -436,7 +440,6 @@
 				799788822140BBC200BEEE62 /* MDMethodTrace.m in Sources */,
 				799788932140BBC200BEEE62 /* fishhook.c in Sources */,
 				799788902140BBC200BEEE62 /* AntiAntiDebug.m in Sources */,
-				79852592214A5E7D00701D38 /* URLHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,9 +687,10 @@
 		799788A02140BBC200BEEE62 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = DDProject/DDProject.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AC3QX9VJ78;
+				DEVELOPMENT_TEAM = GM6C5S4FLT;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DDProject/Info.plist;
 				MONKEYDEV_ADD_SUBSTRATE = YES;
@@ -708,9 +712,10 @@
 		799788A12140BBC200BEEE62 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = DDProject/DDProject.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AC3QX9VJ78;
+				DEVELOPMENT_TEAM = GM6C5S4FLT;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DDProject/Info.plist;
 				MONKEYDEV_ADD_SUBSTRATE = YES;

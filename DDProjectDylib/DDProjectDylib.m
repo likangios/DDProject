@@ -93,6 +93,7 @@ CHConstructor{
 }
 */
 
+/*
 CHDeclareClass(URLHandler)
 
 CHOptimizedClassMethod0(self, id, URLHandler,getInstance){
@@ -100,7 +101,6 @@ CHOptimizedClassMethod0(self, id, URLHandler,getInstance){
     id obj = CHSuper0(URLHandler, getInstance);
     return obj;
 }
-
 CHOptimizedMethod1(self, void, URLHandler, handleURL,id ,arg1){
     NSLog(@"URLHandler=========");
     CHSuper1(URLHandler, handleURL,arg1);
@@ -113,27 +113,21 @@ CHConstructor{
     CHClassHook0(URLHandler, getInstance);
 
 }
+ */
 
-
+CHDeclareClass(URLHandler)
 CHDeclareClass(AppLocalserver)
 
-CHDeclareClassMethod1(void, AppLocalserver, newMethod, NSString*, output){
-    NSLog(@"This is a new method : %@", output);
+CHOptimizedClassMethod0(self, id, URLHandler,getInstance){
+    return CHSuper0(URLHandler, getInstance);
+}
+CHOptimizedMethod1(self, void, URLHandler, handleURL,id ,arg1){
+    CHSuper1(URLHandler, handleURL,arg1);
+    //handleURL = wx4481cc9e70d8ec4b://submit_1572
 }
 
 CHOptimizedClassMethod1(self, id, AppLocalserver, ActionHander,NSDictionary *,arg1){
-    NSLog(@">>>>>>>>>>>>>>>>>>>1");
     NSLog(@"收到的数据=======%@",arg1);
-    [self newMethod:@"dsafdsa"];
-    NSString *submit = [NSString stringWithFormat:@"wx4481cc9e70d8ec4b://submit_123"];
-    NSURL *url = [NSURL URLWithString:submit];
-    
-    NSLog(@"bbbbbb%@",URLHandler$);
-//    $URLHandler_handleURL$_method(URLHandler$.metaClass_, @selector(handleURL:), url);
-    
-    
-//    $URLHandler_handleURL$_method(URLHandler$, @selector(handleURL:), url);
-    
     NSNumber *value = [[NSUserDefaults standardUserDefaults] valueForKey:@"vipIsValid_mmb"];
     if (value.intValue == 1){
         NSString *pkg = arg1[@"pkg"];
@@ -145,33 +139,56 @@ CHOptimizedClassMethod1(self, id, AppLocalserver, ActionHander,NSDictionary *,ar
             [[NSUserDefaults standardUserDefaults] setValue:a forKey:@"a"];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }
-
         if ([a isEqualToString:@"check"]){
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 60 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            //点击试玩
+            NSInteger randomSecond = arc4random()%10;
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (60 + randomSecond) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 NSDictionary *playDic = @{@"pkg":pkg,@"tid":tid,@"a":@"play"};
-                CHSuper1(AppLocalserver, ActionHander, playDic);
+                NSString*ls_aw =  @"AppLocalserver";
+                NSString*default_W =  @"ActionHander:";
+                Class v7 = NSClassFromString(ls_aw);
+                SEL  selector = NSSelectorFromString(default_W);
+                IMP imp = [v7 methodForSelector:selector];
+                NSObject * (*func)(id, SEL,id) = (void *)imp;
+                NSObject  *_LSAW_model_instance =  func(v7, selector,playDic);
             });
         }
         else if ([a isEqualToString:@"play"]){
-//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            //点击提交
+            NSInteger randomSecond = arc4random()%10;
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (3 * 60 + randomSecond) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 NSString *submit = [NSString stringWithFormat:@"wx4481cc9e70d8ec4b://submit_%@",tid];
                 NSURL *url = [NSURL URLWithString:submit];
-
-//                CHSuper1(URLHandler, handleURL , url);
-            
-//            });
+                NSString*ls_aw =  @"URLHandler";
+                NSString*default_W =  @"getInstance";
+                Class v7 = NSClassFromString(ls_aw);
+                SEL  selector = NSSelectorFromString(default_W);
+                IMP imp = [v7 methodForSelector:selector];
+                NSObject * (*func)(id, SEL) = (void *)imp;
+                NSObject  *_LSAW_model_instance =  func(v7, selector);
+                [_LSAW_model_instance performSelector:NSSelectorFromString(@"handleURL:") withObject:url];
+                UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+                localNotification.alertBody = @"任务完成了！！！";
+                localNotification.soundName = UILocalNotificationDefaultSoundName;
+                [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+            });
         }
         
     }
+    
+    
     NSString *obj =  CHSuper1(AppLocalserver, ActionHander,arg1);
     NSLog(@"返回的数据=======%@",obj);
-    NSLog(@"<<<<<<<<<<<<<<<<<<<<1");
     return  obj;
 }
 
 CHConstructor{
     CHLoadLateClass(AppLocalserver);
+    CHLoadLateClass(URLHandler);
+    CHClassHook0(URLHandler, getInstance);
     CHClassHook1(AppLocalserver, ActionHander);
+    CHHook1(URLHandler, handleURL);
+
 }
 
 ///
@@ -187,10 +204,7 @@ CHOptimizedClassMethod0(self, id, AppUtil, OS){
     return  obj;
 }
 CHOptimizedClassMethod0(self, id, AppUtil, GetList){
-    NSLog(@">>>>>>>>>>>>>>>>>>>2");
-    
     NSMutableArray *obj =  CHSuper0(AppUtil, GetList);
-    
     NSNumber *value = [[NSUserDefaults standardUserDefaults] valueForKey:@"vipIsValid_mmb"];
     if (value.intValue == 1 && obj.count){
         NSString *test = [[NSUserDefaults standardUserDefaults] valueForKey:@"pkg"];
@@ -206,67 +220,42 @@ CHOptimizedClassMethod0(self, id, AppUtil, GetList){
             }
         }
     }
-    NSLog(@"<<<<<<<<<<<<<<<<<<<<2");
     return  obj;
-
-
 }
 CHOptimizedClassMethod1(self, BOOL, AppUtil, playAudio,NSString*,arg1){
     
-    NSLog(@">>>>>>>>>>>>>>>>>>>3");
-
     NSNumber *value = [[NSUserDefaults standardUserDefaults] valueForKey:@"vipIsValid_mmb"];
     if (value.intValue == 1){
         NSString *a = [[NSUserDefaults standardUserDefaults] objectForKey:@"a"];
         if ([a isEqualToString:@"play"]){
-            NSLog(@"<<<<<<<<<<<<<<<<<<3");
-
             return YES;
         }
         else{
             BOOL obj =  CHSuper1(AppUtil, playAudio,arg1);
-            NSLog(@"<<<<<<<<<<<<<<<<<<3");
-
             return  obj;
         }
-        
     }
     else{
         BOOL obj =  CHSuper1(AppUtil, playAudio,arg1);
-        NSLog(@"<<<<<<<<<<<<<<<<<<3");
-
         return  obj;
     }
     
 }
 
 CHOptimizedClassMethod1(self, BOOL, AppUtil, check,NSString*,arg1){
-    
-    NSLog(@">>>>>>>>>>>>>>>>>>>4");
-
     NSNumber *value = [[NSUserDefaults standardUserDefaults] valueForKey:@"vipIsValid_mmb"];
     if (value.intValue == 1){
         NSString *a = [[NSUserDefaults standardUserDefaults] objectForKey:@"a"];
         if ([a isEqualToString:@"play"]){
-            NSLog(@"<<<<<<<<<<<<<<<<<<4");
             return YES;
         }
-        if ([a isEqualToString:@"aclimit"]){
-            NSLog(@"<<<<<<<<<<<<<<<<<<4");
-            return NO;
-        }
         BOOL obj =  CHSuper1(AppUtil, check,arg1);
-        NSLog(@"<<<<<<<<<<<<<<<<<<4");
         return  obj;
     }
     else{
         BOOL obj =  CHSuper1(AppUtil, check,arg1);
-           NSLog(@"<<<<<<<<<<<<<<<<<<4");
         return  obj;
-        
     }
-    
-    
 }
 CHConstructor{
     CHLoadLateClass(AppUtil);
@@ -276,18 +265,6 @@ CHConstructor{
     CHClassHook1(AppUtil,check);
     CHClassHook1(AppUtil,playAudio);
 }
-
-CHDeclareClass(AppDelegate)
-
-CHOptimizedMethod0(self, void, AppDelegate, goInit){
-     CHSuper0(AppDelegate, goInit);
-}
-CHConstructor{
-    CHLoadLateClass(AppDelegate);
-    CHClassHook0(AppDelegate, goInit);
-}
-
-
 CHDeclareClass(AppSettingViewController)
 
 CHOptimizedMethod0(self, void, AppSettingViewController, viewDidLoad){
@@ -296,7 +273,6 @@ CHOptimizedMethod0(self, void, AppSettingViewController, viewDidLoad){
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-        NSLog(@"从后台 回来了");
         NSNumber *value = [[NSUserDefaults standardUserDefaults] valueForKey:@"vipIsValid_mmb"];
         UILabel* label = CHIvar(self,_uidlb,__strong UILabel*);
         if (value.intValue != 1 && label.text.length){
@@ -381,12 +357,12 @@ CHConstructor{
     CHLoadLateClass(NSString);
     CHClassHook1(NSString, dataUsingEncoding);
 }
-
 //
 CHDeclareClass(AppDelegate)
 CHOptimizedMethod2(self, BOOL, AppDelegate, application,id ,arg1,didFinishLaunchingWithOptions,id,arg2){
     BOOL  value =  CHSuper2(AppDelegate, application,arg1,didFinishLaunchingWithOptions,arg2);
     [AVOSCloud setApplicationId:@"heeBFMkVulCI6GmtpRwN5Uaw-gzGzoHsz" clientKey:@"Oq6J0kIvuTEcmthAtaGaORFE"];
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     return value;
 }
 CHConstructor{
