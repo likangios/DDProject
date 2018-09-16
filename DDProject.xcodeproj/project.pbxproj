@@ -568,7 +568,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E5EJ3R9VNE;
+				DEVELOPMENT_TEAM = GM6C5S4FLT;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				ENABLE_BITCODE = NO;
@@ -631,7 +631,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = E5EJ3R9VNE;
+				DEVELOPMENT_TEAM = GM6C5S4FLT;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				ENABLE_BITCODE = NO;
@@ -689,7 +689,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = DDProject/DDProject.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = GM6C5S4FLT;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DDProject/Info.plist;
@@ -703,8 +703,8 @@
 				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hangyu.dedaxueyu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "e820a29e-314d-4f39-83a5-3416582af418";
+				PROVISIONING_PROFILE_SPECIFIER = ddxy_dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -713,8 +713,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = DDProject/DDProject.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = GM6C5S4FLT;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DDProject/Info.plist;
@@ -728,8 +728,8 @@
 				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hangyu.dedaxueyu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "61a519da-a4d5-46bf-8ff1-63c9e554da40";
+				PROVISIONING_PROFILE_SPECIFIER = ddxy_hoc;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
